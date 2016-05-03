@@ -4,29 +4,16 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
-    <!-- 讀取resoucers裡面的system nx.properties配置檔案 -->
-    
-    <!-- 開啟Spring annotation的DI -->
-    <context:annotation-config/>
-    
-    <!-- 設定系統資源檔案 -->
-    <context:property-placeholder file-encoding="UTF-8" location="classpath*:/system/nx.properties"/>  
-	
+  
 	<!-- 只要掃描Controller相關的Annotation類別 -->
-	<context:component-scan base-package="com.nx.web.kernel" >
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-	</context:component-scan>
-	
-	<!-- 自動將URL參數綁定到Controler參數上 -->
-	<mvc:annotation-driven/>
-	
+	<context:component-scan base-package="com.nx.kernel" />
+<!-- 	自動將URL參數綁定到Controler參數上-->
+	<mvc:annotation-driven/> 
 	<!-- 設定視圖解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="WEB-INF/views/"/>
+		<property name="prefix" value="/WEB-INF/views/jsp/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
-	<mvc:resources location="/resources/**" mapping="/resources/"/>
+	<mvc:resources location="/res/**" mapping="/res/"/>
 	
-	<mvc:default-servlet-handler/>
-	<mvc:annotation-driven/>
 </beans>

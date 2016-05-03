@@ -5,24 +5,26 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        
-        
+        <!-- 
+        OpenShift Remote Address
         <property name="hibernate.connection.url">jdbc:mysql://127.9.217.130:3306/nxportal?useUnicode=true&amp;characterEncoding=UTF-8</property>
         <property name="hibernate.connection.username">adminJkZz5zn</property>
         <property name="hibernate.connection.password">y51Fgvf7A-P7</property>
-        <property name="hibernate.default_schema">nxportalx</property>
+        <property name="hibernate.default_schema">nxportalx</property> -->
         
-       <!--  <property name="hibernate.connection.password">1234</property>
+    	<property name="hibernate.connection.password">1234</property>
         <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/Rehia?useUnicode=true&amp;characterEncoding=UTF-8</property>
         <property name="hibernate.connection.username">edward</property>
         <property name="hibernate.default_schema">Rehia</property>
-        --> 
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <!-- 指定Level 2 Cache的impl類別 -->
+        <property name="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.format_sql">true</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    	<mapping class="com.nx.kernel.models.NXEntityMaster" />
+    <!-- 	<mapping class="com.nx.kernel.models.NXEntityMaster" />
     	<mapping class="com.nx.kernel.models.NXLocale" />
-    	<mapping class="com.nx.kernel.models.NXEntityModel" />
+    	<mapping class="com.nx.kernel.models.NXEntityModel" /> -->
+    	<mapping class="com.nx.kernel.model.NxUser" />
     </session-factory>
 </hibernate-configuration>
