@@ -11,19 +11,19 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
  	
-    <link rel="stylesheet" href="${serverResourcesCtx}/plugins/bootstrap/css/bootstrap.min.css"">
+    <link rel="stylesheet" href="${serverCtx }/resources/bootstrap/css/bootstrap.min.css"">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="${serverResourcesCtx}/plugins/font-awesome-4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${serverCtx }/resources/font-awesome-4.6.1/css/font-awesome.min.css">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="${serverResourcesCtx}/plugins/ionicons-2.0.1/css/ionicons.css">
+    <link rel="stylesheet" href="${serverCtx }/resources/ionicons-2.0.1/css/ionicons.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="${serverResourcesCtx}/plugins/adminLTE/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="${serverCtx }/resources/adminLTE/css/AdminLTE.min.css">
     <!-- iCheck -->
-    <link rel="stylesheet" href="${serverResourcesCtx}/plugins/iCheck/square/blue.css">
+    <link rel="stylesheet" href="${serverCtx }/resources/iCheck/square/blue.css">
 
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="${serverResourcesCtx}/plugins/adminLTE/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="${serverCtx}/resources/adminLTE/css/skins/_all-skins.min.css">
 
 
 
@@ -140,13 +140,12 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
              <!--  <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> -->
-              <span class="hidden-xs">歡迎 !.Edward Chang</span>
+              <span class="hidden-xs">${greeting}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
                 <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
                 <p>
                   Edward Chang - Administrator
                   <small>Member since Nov. 2012</small>
@@ -173,7 +172,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="${serverCtx}/logout" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -515,6 +514,6 @@
 <!-- ./wrapper -->
 
 <%@ include file="/WEB-INF/tags/commonJS.jsp" %>
-<script src="${serverResourcesCtx}/plugins/nx/js/main.js"></script>
+<script src="${serverCtx }/resources/nx/js/main.js"></script>
 </body>
 </html>
