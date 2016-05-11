@@ -79,7 +79,7 @@
           
         	<c:if test="${param.error != null}">
 				<div class="alert alert-danger">
-					<p>Invalid username and password.</p>
+					<p>登入帳號有誤.</p>
 				</div>
 			</c:if>
 			
@@ -96,7 +96,7 @@
           <div class="form-group has-feedback">
             <input type="password" name='password' class="form-control" placeholder="請輸入您的密碼">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-          </div>
+          </div> 
           <div class="row">
             <div class="col-xs-8">
               <div class="checkbox icheck">
