@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.nx.kernel.config;
+package com.nx.kernel.configuration;
 
 /**
  * @author edward

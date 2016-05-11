@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,24 +18,13 @@ import com.nx.kernel.model.NxUser;
  * @author edward
  *	User服務類
  */
-@Service("nxUsrServices")
-@Transactional(readOnly = false)
-public class NxUserServices {
-	
-	@Autowired
-	private NxUserDao userDao ;
-	
-	public void setUserDao(NxUserDao userDao) {
-		this.userDao = userDao;
-	}
 
-	public List<NxUser> getUser(String id) {
-		return userDao.fetchAll();
-	}
+public interface NxUserService {
+
+	void save(NxUser user);
 	
-	public NxUser validateUser(String account) {
-		return userDao.fetchEntity(account);
-	}
+	NxUser findById(int id);
 	
-	public NxUserServices (){}
+	NxUser findBySso(String sso);
+	
 }

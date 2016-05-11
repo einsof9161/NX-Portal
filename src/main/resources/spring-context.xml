@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
-	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
+	xmlns:jee="http://www.springframework.org/schema/jee" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
@@ -13,10 +17,11 @@
 	<!-- 載入nx property屬性 -->
 	<context:property-placeholder ignore-unresolvable="true" location="classpath*:nx.properties" />
 	
-	<context:component-scan base-package="com.nx.kernel"/> 
-
+	<context:component-scan base-package="com.nx"><!-- base-package 如果多个，用“,”分隔 -->
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
 	
-	<!-- 開啟基於事務管理的tx:annotation-driven 驅動 -->
+	<!-- 開啟於事務管理的tx:annotation-driven 驅動 -->
 	<tx:annotation-driven transaction-manager="transactionManager"  proxy-target-class="true"/>
 	
 	
@@ -29,7 +34,7 @@
    
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> 
 		<property name="dataSource" ref="dataSource"/>
-		<property name="packagesToScan" value="com.nx.kernel"/>
+		<property name="packagesToScan" value="com.nx"/>
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>

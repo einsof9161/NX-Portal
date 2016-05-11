@@ -3,17 +3,23 @@ package com.nx.kernel.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 /**
@@ -22,116 +28,140 @@ import org.hibernate.annotations.GenericGenerator;
  */
 
 @Entity
-@Table(name="NXUser")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class NxUser extends NxBaseEntity<NxUser> {
+@Table(name="NXUSER")
+public class NxUser  {//extends NxBaseEntity<NxUser>
 	
 	private static final long serialVersionUID = -3616410702274976880L;
 
-	@Id
-	@GeneratedValue(generator = "uuid")
-	@GenericGenerator(name = "uuid", strategy = "uuid2")
-	@Column(length=60 ,nullable=false)
-	private String id ;
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
 	
-	@Column(length=50,nullable=false,unique = true)
-	private String userId;
+	@NotEmpty
+	@Column(name="SSO_ID", unique=true, nullable=false)
+	private String ssoId;
 	
-	@Column(length=50,nullable=false,unique = true)
-	private String account;
-	
-	@Column(length=100,nullable=false)
-	private String pwd;	
+	@NotEmpty
+	@Column(name="PASSWORD", nullable=false)
+	private String password;
+		
+	@NotEmpty
+	@Column(name="FIRST_NAME", nullable=false)
 	private String firstName;
+
+	@NotEmpty
+	@Column(name="LAST_NAME", nullable=false)
 	private String lastName;
-	
-	private String title;	
-	private String tel;	
-	private String mobile;
-	private String site;
-	@Column(length=100,nullable=false)
-	private String mail;
-	
-	
-	
-	
-	public String getUserId() {
-		return userId;
+
+	@NotEmpty
+	@Column(name="EMAIL", nullable=false)
+	private String email;
+
+	@NotEmpty
+	@Column(name="STATE", nullable=false)
+	private String state=NxEntityState.ACTIVE.getState();
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "NXUSERPROFILEREL", 
+             joinColumns = { @JoinColumn(name = "USER_ID") }, 
+             inverseJoinColumns = { @JoinColumn(name = "USER_PROFILE_ID") })
+	private Set<NxUserProfile> userProfiles = new HashSet<NxUserProfile>();
+
+	public int getId() {
+		return id;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getAccount() {
-		return account;
+
+	public String getSsoId() {
+		return ssoId;
 	}
-	public void setAccount(String account) {
-		this.account = account;
+
+	public void setSsoId(String ssoId) {
+		this.ssoId = ssoId;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getPwd() {
-		return pwd;
+
+	public String getEmail() {
+		return email;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getTitle() {
-		return title;
+
+	public String getState() {
+		return state;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+
+	public void setState(String state) {
+		this.state = state;
 	}
-	public String getTel() {
-		return tel;
+
+	public Set<NxUserProfile> getUserProfiles() {
+		return userProfiles;
 	}
-	public void setTel(String tel) {
-		this.tel = tel;
+
+	public void setUserProfiles(Set<NxUserProfile> userProfiles) {
+		this.userProfiles = userProfiles;
 	}
-	public String getMobile() {
-		return mobile;
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + ((ssoId == null) ? 0 : ssoId.hashCode());
+		return result;
 	}
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof NxUser))
+			return false;
+		NxUser other = (NxUser) obj;
+		if (id != other.id)
+			return false;
+		if (ssoId == null) {
+			if (other.ssoId != null)
+				return false;
+		} else if (!ssoId.equals(other.ssoId))
+			return false;
+		return true;
 	}
-	public String getMail() {
-		return mail;
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", ssoId=" + ssoId + ", password=" + password
+				+ ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", email=" + email + ", state=" + state + ", userProfiles=" + userProfiles +"]";
 	}
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-	public String getSite() {
-		return site;
-	}
-	public void setSite(String site) {
-		this.site = site;
-	}
-	
-	public NxUser() {
-		System.out.println("####NxUser##");
-	}
-	/**
-	 * @param userId
-	 * @param account
-	 * @param pwd
-	 * @param mail
-	 */
-	public NxUser(String userId, String account, String pwd, String mail) {
-		this.userId = userId;
-		this.account = account;
-		this.pwd = pwd;
-		this.mail = mail;
-		this.createDate = new Date();
-		this.deleteFlag = "W";
-	}
-	
 }
