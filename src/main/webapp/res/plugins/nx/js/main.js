@@ -1,13 +1,25 @@
 
-alert("Load was performed.1");
-$(".content-wrapper").load("userManager #content-div", function() {
-	console.log($(".content-wrapper").html());
-});
+
+function getMenuContent(obj){
+	var parentLi = $(obj).closest('li');
+	var destUrl = parentLi.attr('contextUrl');
+	var entityClass = parentLi.attr('entityClass');
+	destUrl = destUrl+"?entityClass="+entityClass+" #content-wrapper";
+	console.log(destUrl);
+	console.log(entityClass);
+	$(".content-wrapper").load(destUrl,function(){
+		alert();
+	});
+	
+}
+
+
+function editEntity(entity,id){
+	alert('open edit page');
+}
 
 
 
-alert("Load was performed.1");
-//$(".content-wrapper").html("<section class='content-header'><h1>DataTables<small>xxx</samll></h1></section>");
-
-//
-
+function deleteEntity(entity,id){
+	alert('disabled edit page');
+}
