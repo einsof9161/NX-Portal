@@ -21,10 +21,10 @@ import com.nx.kernel.model.NxUser;
 
 @Service("userService")
 @Transactional
-public class NxUserServiceImpl implements NxUserService{
+public class NxUserServiceImpl implements NxUserService<NxUser>{
 
 	@Autowired
-	private NxUserDao dao;
+	private NxUserDao<NxUser> dao;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -40,6 +40,10 @@ public class NxUserServiceImpl implements NxUserService{
 
 	public NxUser findBySso(String sso) {
 		return dao.findBySSO(sso);
+	}
+
+	public List<NxUser> findAll() {
+		return dao.findAll();
 	}
 
 	

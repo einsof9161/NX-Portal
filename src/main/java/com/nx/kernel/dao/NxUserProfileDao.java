@@ -4,10 +4,10 @@ import java.util.List;
 
 import com.nx.kernel.model.NxUserProfile;
 
-public interface NxUserProfileDao {
-	List<NxUserProfile> findAll();
+public interface NxUserProfileDao<T> {
+	List<T> findAll();
 	
-	NxUserProfile findByType(String type);
+	T findByType(String type);
 	
-	NxUserProfile findById(int id);
+	T findById(int id);
 }

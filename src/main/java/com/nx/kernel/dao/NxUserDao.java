@@ -3,11 +3,10 @@ package com.nx.kernel.dao;
 
 import java.util.List;
 
-import com.nx.kernel.model.NxUser;
-
-public interface NxUserDao {
+public interface NxUserDao<T> {
 	
-	void save(NxUser user);
-	NxUser findById(int id);
-	NxUser findBySSO(String sso);
+	void save(T user);
+	T findById(int id);
+	T findBySSO(String sso);
+	List<T> findAll();
 }

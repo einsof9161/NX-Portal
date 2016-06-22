@@ -4,11 +4,11 @@ import java.util.List;
 
 import com.nx.kernel.model.NxUserProfile;
 
-public interface NxUserProfileService {
+public interface NxUserProfileService<T> {
 	
-	List<NxUserProfile> findAll();
+	List<T> findAll();
 	
-	NxUserProfile findByType(String type);
+	T findByType(String type);
 	
-	NxUserProfile findById(int id);
+	T findById(int id);
 }

@@ -11,13 +11,13 @@ import com.nx.kernel.service.NxUserProfileService;
 public class RoleToUserProfileConverter implements Converter<Object, NxUserProfile>{
 
 	@Autowired
-	NxUserProfileService userProfileService;
+	NxUserProfileService<NxUserProfile> userProfileService;
 
 	
 	public NxUserProfile convert(Object element) {
 		Integer id = Integer.parseInt((String)element);
 		NxUserProfile profile= userProfileService.findById(id);
-		System.out.println("Profile : "+profile);
+		System.out.println("Profile ============ "+profile);
 		return profile;
 	}
 	

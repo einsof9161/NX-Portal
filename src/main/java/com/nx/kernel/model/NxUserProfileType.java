@@ -8,8 +8,10 @@ package com.nx.kernel.model;
  *
  */
 public enum NxUserProfileType {
+	
 	USER("USER"),
-	DBA("DBA"),
+	SUPERUSER("SUPERUSER"),
+	SYSTEMMANAGER("SYSTEMMANAGER"),
 	ADMIN("ADMIN");
 	
 	String userProfileType;

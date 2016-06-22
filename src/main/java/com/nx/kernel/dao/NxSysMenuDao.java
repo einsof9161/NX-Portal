@@ -6,13 +6,11 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 
-@Repository
-public class NxSysMenuDao  {
+
+public interface NxSysMenuDao<T>  {
+	List<T> findAll();
 	
-/*
-	public List<NxMenu> findAllList(){
-		return find("from Menu where delFlag=:p1 order by sort", new Parameter(Dict.DEL_FLAG_NORMAL));
-	}*/
+	T findByType(String type);
 	
-	
+	T findById(int id);
 }

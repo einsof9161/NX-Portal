@@ -12,10 +12,10 @@ import com.nx.kernel.model.NxUserProfile;
 
 @Service("userProfileService")
 @Transactional
-public class NxUserProfileServiceImpl implements NxUserProfileService{
+public class NxUserProfileServiceImpl implements NxUserProfileService<NxUserProfile>{
 	
 	@Autowired
-	NxUserProfileDao dao;
+	NxUserProfileDao<NxUserProfile> dao;
 	
 	public List<NxUserProfile> findAll() {
 		return dao.findAll();

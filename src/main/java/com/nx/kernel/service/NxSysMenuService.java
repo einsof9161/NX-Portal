@@ -16,16 +16,14 @@ import com.nx.kernel.model.NxUser;
 
 /**
  * @author edward
- *	User服務類
+ *	Menu服務類
  */
 
-public interface NxUserService<T> {
+public interface NxSysMenuService<T> {
 
-	void save(T user);
-	
-	T findById(int id);
-	
-	T findBySso(String sso);
-	
+	void save(T menu);
+	T findById(int menuId);
 	List<T> findAll();
+	
+	
 }

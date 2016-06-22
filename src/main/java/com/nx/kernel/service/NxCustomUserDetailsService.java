@@ -20,7 +20,7 @@ import com.nx.kernel.model.NxUserProfile;
 public class NxCustomUserDetailsService implements UserDetailsService{
 
 	@Autowired
-	private NxUserService userService;
+	private NxUserService<NxUser> userService;
 	
 	@Transactional(readOnly=true)
 	public UserDetails loadUserByUsername(String ssoId)

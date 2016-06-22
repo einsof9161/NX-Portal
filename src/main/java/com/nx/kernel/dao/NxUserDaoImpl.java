@@ -1,20 +1,18 @@
 
 package com.nx.kernel.dao;
 
-import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Repository;
 
 import com.nx.kernel.model.NxUser;
 
 @Repository
-public class NxUserDaoImpl extends NxAbstractDao<Integer, NxUser> implements NxUserDao{
+public class NxUserDaoImpl extends NxAbstractDao<Integer, NxUser> implements NxUserDao<NxUser> {
 
 	public void save(NxUser user) {
 		// TODO Auto-generated method stub
@@ -32,6 +30,18 @@ public class NxUserDaoImpl extends NxAbstractDao<Integer, NxUser> implements NxU
 		return (NxUser) crit.uniqueResult();
 	}
 
-	
-	
+	public List<NxUser> findAll() {
+		// TODO Auto-generated method stub
+		Criteria crit = createEntityCriteria();
+		crit.setProjection(Projections.projectionList()
+				.add(Projections.property("id"), "id")
+				.add(Projections.property("firstName"), "firstName")
+				.add(Projections.property("lastName"), "lastName")
+				.add(Projections.property("email"), "email")
+				.add(Projections.property("ssoId"), "ssoId"))
+				.add( Restrictions.eq("state", "Active"))
+				.setResultTransformer(Transformers.aliasToBean(NxUser.class));
+		return crit.list();
+	}
+
 }
