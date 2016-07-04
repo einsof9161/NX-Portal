@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+
+	<mime-type>text/jsp</mime-type>
+    <!-- 指明滿足「/*」的頁面，將被「/WEB-INF/views/decorators/decorator.html」所裝飾 -->
+    <mapping path="/*" decorator="/WEB-INF/views/jsp/decorators/decorator.jsp" />
+
+    <!-- 指明滿足「/exclude.jsp*」的頁面，將被排除，不被裝飾 
+    <mapping path="/exclude.jsp*" exclue="true" />-->
+</sitemesh>

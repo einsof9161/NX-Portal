@@ -10,14 +10,14 @@
  
 
 	<http auto-config="true">
-		<intercept-url pattern="/" access="permitAll" />
+		<intercept-url pattern="/" access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/main/**" access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')"/>
+		
 		<form-login  login-page="/login"
-                     username-parameter="ssoId"
+                     username-parameter="username"
                      password-parameter="password" 
                      authentication-success-handler-ref="customSuccessHandler"/>
-                     
-       	<access-denied-handler error-page="/Access_Denied" />              
+       	<access-denied-handler error-page="/access_Denied" />              
 		<csrf />
 	</http>
 	
@@ -26,7 +26,7 @@
 	<beans:bean id="customSuccessHandler"  class="com.nx.kernel.configuration.CustomSuccessHandler" />
      
 	<authentication-manager>
-		<authentication-provider user-service-ref="customUserDetailsService">
+		<authentication-provider user-service-ref="nxEmpDetailServices">
 			<password-encoder ref="bcryptEncoder" />
 		</authentication-provider>
 	</authentication-manager>

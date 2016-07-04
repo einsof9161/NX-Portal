@@ -5,20 +5,20 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
     
-	<!-- 只要掃描Controller相關的Annotation類別 -->
-	<context:component-scan base-package="com.nx.kernel.controller" use-default-filters="false">
+<!-- 	只要掃描Controller相關的Annotation類別
+	<context:component-scan base-package="com.nx.kernel" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
-	<!-- 	自動將URL參數綁定到Controler參數上-->
+	
+	自動將URL參數綁定到Controler參數上
 	<mvc:annotation-driven/> 
-	<!-- 設定視圖解析器 -->
+	設定視圖解析器
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/jsp/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	<mvc:resources mapping="/resources/**" location="/res/plugins/" />
 	
-	
-  	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	 -->
 	
 </beans>
