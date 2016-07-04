@@ -30,7 +30,6 @@
 /Users/edward/Documents/git workspace/nxportal/nxportal/src/main/java/com/nx/kernel/service/impl/NxSysMenuServiceImpl.java
 /Users/edward/Documents/git workspace/nxportal/nxportal/src/main/java/com/nx/kernel/model/user/NxUser.java
 /Users/edward/Documents/git workspace/nxportal/nxportal/src/main/java/com/nx/kernel/utils/NxIdGenerator.java
-/Users/edward/Documents/git workspace/nxportal/nxportal/src/main/java/com/nx/kernel/controller/NxSystemController.java
 /Users/edward/Documents/git workspace/nxportal/nxportal/src/main/java/com/nx/kernel/model/NxPageView.java
 /Users/edward/Documents/git workspace/nxportal/nxportal/src/main/java/com/nx/kernel/utils/GenericsUtils.java
 /Users/edward/Documents/git workspace/nxportal/nxportal/src/main/java/com/nx/kernel/hql/common/NxQueryParameter.java

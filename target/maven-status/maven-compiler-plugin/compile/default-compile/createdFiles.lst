@@ -26,7 +26,6 @@ com/nx/kernel/model/NxBaseEntity.class
 com/nx/kernel/model/privilege/NxSystemPrivilege.class
 com/nx/kernel/utils/PropertyHelper.class
 com/nx/kernel/service/NxEmployeeService.class
-com/nx/kernel/controller/NxSystemController.class
 com/nx/kernel/dao/impl/NxUserProfileDaoImpl.class
 com/nx/kernel/service/security/NxEmployeeDetailsService.class
 com/nx/kernel/dao/NxImageFileDao.class
