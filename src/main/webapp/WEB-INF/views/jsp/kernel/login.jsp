@@ -94,9 +94,15 @@
 		</div>
 		<!-- /.login-box-body -->
 
+
+	
+
 		<div style="text-align: center">
-			Developed by <a target="_blank">Edward</a><br /> Theme by <a
-				target="_blank" href="http://almsaeedstudio.com/AdminLTE/">AdminLTE</a>
+			<strong>Develop by <a href="https://github.com/einsof9161/NX-Portal">Edward Chang  <i class="fa fa-github"></i></a></strong>
+		</div>
+		<div style="text-align: center">
+			<strong>Template by <a href="https://github.com/almasaeed2010/AdminLTE">Almsaeed Studio<i class="fa fa-github"></i></a>.
+			</strong>
 		</div>
 		<!-- /.login-box -->
 
