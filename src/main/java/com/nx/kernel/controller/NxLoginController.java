@@ -6,7 +6,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import javax.validation.Validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -28,12 +27,13 @@ import com.nx.kernel.model.user.NxEmployee;
 import com.nx.kernel.service.NxEmployeeService;
 import com.nx.kernel.service.NxSysMenuService;
 import com.nx.kernel.service.NxUserProfileService;
-import com.nx.kernel.service.NxUserService;
 import com.nx.kernel.utils.PasswordEncodingGenerator;
+
+
 
 @Controller
 @SessionAttributes("sessionUserBean")
-public class NxLoginController extends NxBaseController{
+public class NxLoginController {
 
 	@Autowired
 	NxEmployeeService<NxEmployee> empServices;
@@ -48,7 +48,6 @@ public class NxLoginController extends NxBaseController{
 	
 	@RequestMapping(value = { "/", "/main" }, method = RequestMethod.GET)
 	public String homePage(ModelMap model) {
-		logger.info("######"+model);
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentPrincipalName = authentication.getName();
@@ -124,12 +123,6 @@ public class NxLoginController extends NxBaseController{
 		if (result.hasErrors()) {
 			return "kernel/register";
 		} 
-		
-		if(beanValidator(model,emp)){
-			System.out.println("beanValidator.....");
-		}else{
-			System.out.println("beanValidator.....Fail");
-		}
 		
 		System.out.println(".......2"+emp);
 		System.out.println("model.message2"+model);
