@@ -1,6 +1,6 @@
 # NX_FlowConsole
 
-## Introduction（介紹）
+# Introduction（介紹）
 
 NX_FlowConsole管理系統.結合了spring+mvc,並整合了UI 模板AdminLTE 2.
 A sample Spring-based application and integration the UI Theme AdminLTE 2.
