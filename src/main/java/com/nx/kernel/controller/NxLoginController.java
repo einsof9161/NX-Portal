@@ -120,9 +120,7 @@ public class NxLoginController {
 	@RequestMapping(value = "/saveRegistration", method = RequestMethod.POST)
 	public String saveRegistration(@ModelAttribute("register") @Valid NxEmployee emp,BindingResult result,Model model) {
 		 
-		if (result.hasErrors()) {
-			return "kernel/register";
-		}
+		if (result.hasErrors()) { return "kernel/register"; }
 		System.out.println(".......2"+emp);
 		System.out.println("model.message2"+model);
 		emp.setPassword(PasswordEncodingGenerator.encoder(emp.getPassword()));

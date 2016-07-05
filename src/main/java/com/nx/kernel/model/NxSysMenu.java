@@ -24,37 +24,37 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
-@Table(name="NXSYSMENU")
+@Table(name="NxSysMenu")
 public class NxSysMenu {
 	
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ID", unique=true, nullable=false)
+	@Column(name="id", unique=true, nullable=false)
 	private int id;
 	
 	@NotEmpty
-	@Column(name="MENU_ID", unique=true, nullable=false)
+	@Column(name="menu_id", unique=true, nullable=false)
 	private String menuId;
 	
 	@NotEmpty
-	@Column(name="NAME", nullable=false)
+	@Column(name="name", nullable=false)
 	private String name;
 	
-	@Column(name="DESCRIPTION", nullable=true)
+	@Column(name="description", nullable=true)
 	private String description;
 	
 	@NotNull
-	@Column(name="ENTITYCLASS", nullable=false)
+	@Column(name="entityclass", nullable=false)
 	private String entityClass;
 	
-	@Column(name="ICON", nullable=true)
+	@Column(name="icon", nullable=true)
 	private String icon;
 	
-	@Column(name="HYPERLINK", nullable=true)
+	@Column(name="hyperlink", nullable=true)
 	private String hyperlink;
 	
 	@NotNull
-	@Column(name="SEQ", nullable=false)
+	@Column(name="seq", nullable=false)
 	private int seq;
 	
 	@ManyToOne 

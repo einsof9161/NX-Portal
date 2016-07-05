@@ -29,27 +29,32 @@ public abstract class NxAbstractDao<PK extends Serializable, T> {
 	public T getByKey(PK key) {
 		return (T) getSession().get(persistentClass, key);
 	}
-
+	
 	public void persistEntity(T entity) {
 		getSession().persist(entity);
 	}
-
+	@SuppressWarnings("unchecked")
 	public void saveEntity(T entity) {
 		getSession().save(entity);
 	}
+	
+	@SuppressWarnings("unchecked")
 	public void updateEntity(T entity) {
 		getSession().saveOrUpdate(entity);
 		getSession().flush();;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void deleteEntity(T entity) {
 		getSession().delete(entity);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void mergeEntity(T entity) {
 		getSession().merge(entity);
 	}
 	
+	@SuppressWarnings("unchecked")
 	protected Criteria createEntityCriteria(){
 		return getSession().createCriteria(persistentClass);
 	}

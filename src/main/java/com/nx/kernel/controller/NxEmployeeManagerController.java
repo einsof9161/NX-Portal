@@ -74,7 +74,7 @@ public class NxEmployeeManagerController {
 			employeeService.merge(empEdit);
 		}else{
 			empEdit.setImage(null);
-			employeeService.save(empEdit);
+			employeeService.update(empEdit);
 		}
 		return "redirect:/employee/list";
 	}

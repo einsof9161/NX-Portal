@@ -5,6 +5,8 @@ package com.nx.kernel.dao;
 
 import java.util.List;
 
+import com.nx.kernel.model.user.NxEmployee;
+
 /**
  * @author edward
  *

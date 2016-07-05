@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.nx.kernel.model.NxSysMenu;
+
 
 
 public interface NxSysMenuDao<T>  {
