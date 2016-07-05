@@ -18,13 +18,12 @@
 	<section class="content">
     	 <div class="box box-primary">
     		<c:set var="message" scope="session" value="${message}"/>
-    		<c:set var="message" scope="session" value="${message}"/>
     	 	<c:if test="${empty message}">
 			    var1 is empty or null.
 			</c:if>
     	 
             <!-- form start -->
-             <form:form method="POST" action="./menu/manage/save" modelAttribute="menuEdit">
+             <form:form method="POST" action="./menu/manage/save?isParent=${isParent}" modelAttribute="menuEdit">
             	<div class="box-body">
               	<div class="form-group">
               		<form:label path="id">ID</form:label>
@@ -68,7 +67,7 @@
                 	<form:label path="parent.id">關聯父表單ID</form:label>
               		<form:input path="parent.id" cssClass="form-control"/>
                 	</div>
-				</c:if>	
+				</c:if>
               </div>
         	</form:form>
         	 <div class="box-footer">

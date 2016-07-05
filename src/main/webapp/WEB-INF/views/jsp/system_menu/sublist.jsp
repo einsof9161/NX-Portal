@@ -47,7 +47,6 @@
 								<th>連結</th>
 								<th>圖示</th>
 								<th>標示符</th>
-								
 								<th>順序</th>
 								<th>關聯父選單</th>
 								<th>關聯父ID</th>
@@ -57,7 +56,7 @@
 							<tr>
 							  <td> ${entry.id}</td>
 						      <td >
-						      	  "menu/manage/edit?method=editMenuUI&isParent=${isParent}&id=${entry.id}"
+						      	  <!-- "menu/manage/edit?method=editMenuUI&isParent=${isParent}&id=${entry.id}" -->
 								  <a onclick="redirectContentWrapper(this);" href="javascript:void(0);" contextUrl="menu/manage/edit?method=editMenuUI&isParent=${isParent}&id=${entry.id}">
 								  	<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 								  </a>

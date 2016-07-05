@@ -15,7 +15,7 @@ CREATE TABLE `NxEmployee` (
   `firstName` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `lastName` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `degree` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `gender` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `gender` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone` varchar(18) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -36,8 +36,8 @@ CREATE TABLE `NxEmployee` (
 
 
 
-drop table `NX_MENU`;
-CREATE TABLE `NX_MENU` (
+drop table `NxSysMenu`;
+CREATE TABLE `NxSysMenu` (
 `UID` varchar(30 ) COLLATE utf8_bin NOT NULL ,
 `FRAME_CODE` varchar(30 ) COLLATE utf8_bin NOT NULL ,
 `REF_URL` varchar(500 ) COLLATE utf8_bin  NULL ,
@@ -54,26 +54,6 @@ CREATE TABLE `NX_MENU` (
 `SEQ` int  COLLATE utf8_bin  NULL 
 ) ;
 
-
-
-
-drop table `NX_MENU`;
-CREATE TABLE `NX_MENU` (
-`UID` varchar(30 ) COLLATE utf8_bin NOT NULL ,
-`FRAME_CODE` varchar(30 ) COLLATE utf8_bin NOT NULL ,
-`REF_URL` varchar(500 ) COLLATE utf8_bin  NULL ,
-`FUNCTION` varchar(10 ) COLLATE utf8_bin  NULL  DEFAULT 'N'   ,
-`FRAME_HEIGHT` varchar(30 ) COLLATE utf8_bin  NULL ,
-`NAME` varchar(200 ) COLLATE utf8_bin  NULL ,
-`NXDEPTID` varchar(512 )  COLLATE utf8_bin  NULL ,
-`NXROLEID` varchar(512 )  COLLATE utf8_bin  NULL ,
-`NXUSERID` varchar(512 )  COLLATE utf8_bin  NULL ,
-`STATUS` varchar(30 ) DEFAULT 'P'   COLLATE utf8_bin  NULL ,
-`CREATION_DATE` datetime,
-`MODIFY_DATE` datetime,
-`DELETE_DATE` datetime,
-`SEQ` int  COLLATE utf8_bin  NULL 
-) ;
 
 
 

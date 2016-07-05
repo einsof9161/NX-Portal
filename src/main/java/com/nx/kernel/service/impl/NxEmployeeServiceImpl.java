@@ -1,5 +1,6 @@
 package com.nx.kernel.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,7 @@ public class NxEmployeeServiceImpl  implements NxEmployeeService<NxEmployee>{
 
 	public void save(NxEmployee entity) {
 		// TODO Auto-generated method stub
+		entity.setCreatedate(new Date());
 		dao.save(entity);
 	}
 	
@@ -45,6 +47,13 @@ public class NxEmployeeServiceImpl  implements NxEmployeeService<NxEmployee>{
 	}
 	public NxEmployee findByAccount(String account){
 		return dao.findByAccount(account);
+	}
+
+	@Override
+	public void update(NxEmployee entity) {
+		// TODO Auto-generated method stub
+		entity.setModifydate(new Date());
+		dao.update(entity);
 	}
 
 	

@@ -23,6 +23,8 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler{
     @Override
     protected void handle(HttpServletRequest request,HttpServletResponse response, Authentication authentication) throws IOException {
         String targetUrl = determineTargetUrl(authentication);
+        
+        System.out.println("authentication.getName();.."+authentication.getName());
         System.out.println("CustomSuccessHandler.."+targetUrl);
         if (response.isCommitted()) {
             System.out.println("Can't redirect");
@@ -34,13 +36,11 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler{
     protected String determineTargetUrl(Authentication authentication) {
     	String url="";
         Collection<? extends GrantedAuthority> authorities =  authentication.getAuthorities();
-        
 		List<String> roles = new ArrayList<String>();
-
 		for (GrantedAuthority a : authorities) {
 			roles.add(a.getAuthority());
 		}
-
+		System.out.println("roles....."+roles);
 		if (isDba(roles)||isAdmin(roles)||isUser(roles)) {
 			url = "/main";
 		} else {

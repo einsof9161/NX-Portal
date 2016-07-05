@@ -76,7 +76,7 @@ public class NxLoginController {
 	}
 	
 
-	@RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
+	@RequestMapping(value = "/denied", method = RequestMethod.GET)
 	public String accessDeniedPage(ModelMap model) {
 		model.addAttribute("user", getPrincipal());
 		return "kernel/accessDenied";
@@ -108,8 +108,8 @@ public class NxLoginController {
 	private void initGenderList(Model model) {
 		// TODO Auto-generated method stub
 		List<String> gerderList = new ArrayList<String>();
-		gerderList.add("MAN");
-		gerderList.add("WOMEN"); 
+		gerderList.add("Male");
+		gerderList.add("Femele"); 
 		model.addAttribute("gerderList", gerderList);
 	}
 
@@ -122,8 +122,7 @@ public class NxLoginController {
 		 
 		if (result.hasErrors()) {
 			return "kernel/register";
-		} 
-		
+		}
 		System.out.println(".......2"+emp);
 		System.out.println("model.message2"+model);
 		emp.setPassword(PasswordEncodingGenerator.encoder(emp.getPassword()));

@@ -15,6 +15,7 @@ public interface NxEmployeeDao<T> {
 	public T find(int id);
 	public T findByAccount(String userName);
 	public void save(T entity);
+	public void update(T entity);
 	public void merge(T entity);
 	
 	

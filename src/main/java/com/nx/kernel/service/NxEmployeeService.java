@@ -40,5 +40,6 @@ public interface NxEmployeeService<T> {
 	public T findByAccount(String account);
 	
 	public void save(T entity);
+	public void update(T entity);
 	public void merge(T entity);
 }

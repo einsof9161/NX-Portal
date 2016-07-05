@@ -42,9 +42,13 @@ public class NxSysMenuDaoImpl extends NxAbstractDao<Integer, NxSysMenu> implemen
 
 	public void save(NxSysMenu menu) {
 		// TODO Auto-generated method stub
-		update(menu);
+		saveEntity(menu);
 	}
 
+	public void update(NxSysMenu menu) {
+		// TODO Auto-generated method stub
+		updateEntity(menu);
+	}
 	public NxSysMenu findById(int menuId) {
 		Criteria crit = createEntityCriteria();
 		List l = crit.add(Restrictions.eq("id", menuId)).list();

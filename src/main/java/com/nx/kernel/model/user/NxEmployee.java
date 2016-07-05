@@ -1,5 +1,6 @@
 package com.nx.kernel.model.user;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -53,29 +54,50 @@ public class NxEmployee {
 	@Column(length=8,nullable=false)
 	private String realname;
 	
-	/* 性別 5位 不能為null */
-	@NotNull(message="不可為空值")
-	@Enumerated(EnumType.STRING) @Column(length=5,nullable=false)
-	private NxGender gender;
-
+	@Column(length=100)
+	private String firstname;
+	
+	@Column(length=100)
+	private String lastname;
+	
 	/* 學歷 10位 */
 	@Column(length=10)
 	private String degree;
 	
-	
-	/* 畢業院校 20位 */
-	@Column(length=20)
-	private String school;
-
-	@Size( max=18)
-	/* 聯繫電話 20 */
-	@Column(length=18)
-	private String phone;
+	/* 性別 5位 不能為null */
+	@NotNull(message="不可為空值")
+	@Enumerated(EnumType.STRING) @Column(length=10,nullable=false)
+	private NxGender gender;
 	
 	@NotNull(message="不可為空值")
 	@Size(min=1, max=40,message="不可超過40個字元")
 	@Column(length=40)
 	private String email;
+	
+	@Column(length=255)
+	private String title;
+	
+	@Size( max=18)
+	/* 聯繫電話 20 */
+	@Column(length=18)
+	private String phone;
+	
+	/* 畢業院校 20位 */
+	@Column(length=20)
+	private String school;
+
+	/* 員工在職狀態 true為在職,false為離職 */
+	@Column(nullable=false)
+	private Boolean visible = true;
+	
+	@Column
+	private Date createdate;
+	
+	@Column
+	private Date modifydate;
+	
+	@Column
+	private Date obseletedate;
 
 	/* 照片 41 */ 
 
@@ -83,9 +105,7 @@ public class NxEmployee {
 	@JoinColumn(name="image_id")
 	private NxImageFile image; //只存放文件名稱,而且文件名稱採用uuid生成,圖片保存在/images/employee/[username]/目錄
 
-	/* 員工在職狀態 true為在職,false為離職 */
-	@Column(nullable=false)
-	private Boolean visible = true;
+
 
 	/* 員工所在部門 */
 	@ManyToOne(cascade=CascadeType.REFRESH)
@@ -97,8 +117,6 @@ public class NxEmployee {
 	@JoinTable(name="NxGroupRel",inverseJoinColumns=@JoinColumn(name="group_id"),
 	joinColumns=@JoinColumn(name="username"))
 	private Set<NxPrivilegeGroup> groups = new HashSet<NxPrivilegeGroup>();
-
-
 
 
 	public Set<NxPrivilegeGroup> getGroups() {
@@ -131,7 +149,7 @@ public class NxEmployee {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
+	} 
 
 	public String getRealname() {
 		return realname;
@@ -154,16 +172,7 @@ public class NxEmployee {
 	public void setDegree(String degree) {
 		this.degree = degree;
 	}
-	/*
-	@OneToOne(cascade=CascadeType.ALL, optional=false)
-	@JoinColumn(name="card_id")
-	public IDCard getIdCard() {
-		return idCard;
-	}
-	public void setIdCard(IDCard idCard) {
-		this.idCard = idCard;
-	}*/
-
+	
 	public String getSchool() {
 		return school;
 	}
@@ -209,6 +218,55 @@ public class NxEmployee {
 		this.department = department;
 	}
 
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public Date getCreatedate() {
+		return createdate;
+	}
+
+	public void setCreatedate(Date createdate) {
+		this.createdate = createdate;
+	}
+
+	public Date getModifydate() {
+		return modifydate;
+	}
+
+	public void setModifydate(Date modifydate) {
+		this.modifydate = modifydate;
+	}
+
+	public Date getObseletedate() {
+		return obseletedate;
+	}
+
+	public void setObseletedate(Date obseletedate) {
+		this.obseletedate = obseletedate;
+	}
 
 	@Override
 	public int hashCode() {

@@ -22,35 +22,35 @@
 	    	<c:if test="${not empty nameBindError}">
 				<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i>${nameBindError}</label>
 		   </c:if>
-	    	<input type="text" name="username" class="form-control" placeholder="Full name">
+	    	<input type="text" name="username" class="form-control" placeholder="請輸入帳號(字母加上英文)" value="${register.username}">
 		   	<span class="glyphicon glyphicon-user form-control-feedback"></span>
 	    </div>
 		<div class="form-group ${not empty realnameBindError?"has-error":"has-feedback"}">
 			<c:if test="${not empty realnameBindError}">
 				<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i>${realnameBindError}</label>
 		   </c:if>
-			<input type="text" name="realname" class="form-control" placeholder="realname">
+			<input type="text" name="realname" class="form-control" placeholder="真實姓名" value="${register.realname}">
 			<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 		</div>
 		<div class="form-group ${not empty emailBindError?"has-error":"has-feedback"}">
 			<c:if test="${not empty emailBindError}">
 				<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i>${emailBindError}</label>
 		   </c:if>
-		   <input type="email" name="email"  class="form-control" placeholder="Email">
+		   <input type="email" name="email"  class="form-control" placeholder="Email地址" value="${register.email}">
 			<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 		</div>
 		<div class="form-group ${not empty passwordBindError?"has-error":"has-feedback"}">
       		<c:if test="${not empty passwordBindError}">
 				<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i>${passwordBindError}</label>
 		   </c:if>
-        	<input type="password" name="password" class="form-control" placeholder="Password">
+        	<input type="password" name="password" class="form-control" placeholder="請輸入密碼">
         	<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 		</div>
 		<div class="form-group ${not empty passwordBindError?"has-error":"has-feedback"}">
 			<c:if test="${not empty passwordBindError}">
 				<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i>${passwordBindError}</label>
 		   </c:if>
-			<input type="password" name="re-password"  class="form-control" placeholder="Retype password">
+			<input type="password" name="re-password"  class="form-control" placeholder="請再次輸入密碼">
 			<span class="glyphicon glyphicon-log-in form-control-feedback"></span>
 		</div>
 		

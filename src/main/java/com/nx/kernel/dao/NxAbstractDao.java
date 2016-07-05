@@ -30,16 +30,19 @@ public abstract class NxAbstractDao<PK extends Serializable, T> {
 		return (T) getSession().get(persistentClass, key);
 	}
 
-	public void persist(T entity) {
+	public void persistEntity(T entity) {
 		getSession().persist(entity);
 	}
 
-	public void update(T entity) {
+	public void saveEntity(T entity) {
+		getSession().save(entity);
+	}
+	public void updateEntity(T entity) {
 		getSession().saveOrUpdate(entity);
 		getSession().flush();;
 	}
 	
-	public void delete(T entity) {
+	public void deleteEntity(T entity) {
 		getSession().delete(entity);
 	}
 	

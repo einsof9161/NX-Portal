@@ -14,6 +14,7 @@ import java.util.Map;
 public interface NxSysMenuService<T> {
 
 	public void    save(T menu);
+	public void    update(T menu);
 	public T       findById(int menuId);
 	public Map	   findParentKey();
 	public List<T> findAll();

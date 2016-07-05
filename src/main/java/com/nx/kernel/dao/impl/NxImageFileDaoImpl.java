@@ -39,7 +39,7 @@ public class NxImageFileDaoImpl extends NxAbstractDao<Integer, NxImageFile> impl
 
 	public void save(NxImageFile image) {
 		// TODO Auto-generated method stub
-		update(image);
+		saveEntity(image);
 	}
 
 	public Blob getBlob(InputStream input,long length) {

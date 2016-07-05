@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.nx.kernel.controller;
 
 import java.util.LinkedHashMap;
@@ -71,21 +68,14 @@ public class NxEmployeeManagerController {
 	 
 	@RequestMapping(value = { "/employee/manage/save"}, method = RequestMethod.POST)
 	public String save(@ModelAttribute("empEdit") NxEmployee empEdit,ModelMap model,BindingResult result) {
-		System.out.println("NxEmployee######1");
-		
 		if(empEdit.getImage().getId()!=null){
-			System.out.println("NxEmployee######2");
 			NxImageFile image = imageServices.findById(empEdit.getImage().getId());
-			System.out.println("image######3");
 			empEdit.setImage(image);
 			employeeService.merge(empEdit);
 		}else{
 			empEdit.setImage(null);
 			employeeService.save(empEdit);
 		}
-		
-		
-		model.put("message",200);
 		return "redirect:/employee/list";
 	}
 }

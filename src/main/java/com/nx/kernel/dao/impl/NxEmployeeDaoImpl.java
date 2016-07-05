@@ -87,9 +87,12 @@ public class NxEmployeeDaoImpl extends NxAbstractDao<Integer, NxEmployee> implem
 	
 	public void save(NxEmployee entity) {
 		// TODO Auto-generated method stub
-		update(entity);
+		saveEntity(entity);
 	}
-	
+	public void update(NxEmployee entity) {
+		// TODO Auto-generated method stub
+		updateEntity(entity);
+	}
 	public void merge(NxEmployee entity) {
 		// TODO Auto-generated method stub
 		mergeEntity(entity);

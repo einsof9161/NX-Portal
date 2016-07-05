@@ -25,7 +25,11 @@ public class NxSysMenuServiceImpl implements NxSysMenuService<NxSysMenu>{
 		return dao.findAll();
 	}
 
-	
+	public void update(NxSysMenu menu) {
+		// TODO Auto-generated method stub
+		dao.update(menu);
+	}
+
 	public void save(NxSysMenu menu) {
 		// TODO Auto-generated method stub
 		dao.save(menu);

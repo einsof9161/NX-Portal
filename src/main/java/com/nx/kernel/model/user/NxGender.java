@@ -2,10 +2,11 @@ package com.nx.kernel.model.user;
 
 public enum NxGender {
 	
-	MAN{
-		public String getName(){return "男";}
-	},WOMEN{
-		public String getName(){return "女";}
+	Mele{
+		public String getName(){return "Mele";}
+	},
+	Female{
+		public String getName(){return "Female";}
 	};
 	
 	public abstract String getName();
