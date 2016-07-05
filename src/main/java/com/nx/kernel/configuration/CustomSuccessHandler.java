@@ -26,9 +26,11 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler{
         
         System.out.println("authentication.getName();.."+authentication.getName());
         System.out.println("CustomSuccessHandler.."+targetUrl);
+        System.out.println("CustomSuccessHandler.."+targetUrl);
+        System.out.println("CustomSuccessHandler.."+targetUrl);
         if (response.isCommitted()) {
             System.out.println("Can't redirect");
-            return;
+            return;  
         }
         redirectStrategy.sendRedirect(request, response, targetUrl);
     }
