@@ -24,20 +24,23 @@ A sample Spring-based application and integration the UI Theme AdminLTE 2.
 
  * DOM control : jQuery 1.9
  * UI Theme    : AdminLTE 2
+ 
+3、Server could(服務器）
+
+ * Cloud platform :JBoss OpenShift
 
 
 ## Demo(展示）
 
  * http://nxportal-nxsys.rhcloud.com/main
 
-## Task(後續工作)
- * 整合JBPM工作流
- * 物件管理
- * 後端工作設定
+## Task(後續開發工作)
+ * 整合JBPM工作流程
+ * 物件新增與管理
+ * 系統Job設定
  * 專案管理
  * 權限規劃
  * 用戶工作待處理簽核
-
 
 ## License
 

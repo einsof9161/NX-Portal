@@ -19,9 +19,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotBlank;
 
 import com.nx.kernel.model.NxImageFile;
 import com.nx.kernel.model.privilege.NxDepartment;
@@ -39,7 +38,7 @@ public class NxEmployee {
 	/* 主鍵,20位*/
 	
 	@NotNull(message="不可為空值")
-	@Size(min=4, max=20,message="請輸入介於4~20個字元")
+	@Size(min=4, max=20,message="請輸入介於4~20個英文")
 	@Column(length=20, nullable=false)
 	private String username;
 	
@@ -51,7 +50,7 @@ public class NxEmployee {
 	@NotNull(message="不可為空值")
 	@Size(min=1,max=8,message="請輸入介於1~8個字元")
 	/* 姓名 10位 不能為null */
-	@Column(length=8,nullable=false)
+	@Column(length=30,nullable=false)
 	private String realname;
 	
 	@Column(length=100)
