@@ -49,7 +49,7 @@ public class NxEmployee {
 	private String password;
 	
 	@NotNull(message="不可為空值")
-	@Size(min=1,max=8,message="請輸入介於1~8個字元")
+	@Size(min=1,max=8,message="請輸入介於1~30個字元")
 	/* 姓名 10位 不能為null */
 	@Column(length=30,nullable=false)
 	private String realname;

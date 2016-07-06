@@ -1,5 +1,6 @@
 package com.nx.kernel.model.privilege;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,8 +18,23 @@ public class NxDepartment {
 	@Id @Column(length=36)
 	private String departmentid;
 	
-	@Column(length=20,nullable=false)
+	@Column(length=100,nullable=false)
 	private String name;
+	
+	@Column(length=200,nullable=false)
+	private String descripion;
+	
+	@Column(nullable=false)
+	private Boolean visible = true;
+	
+	@Column
+	private Date createdate;
+	
+	@Column
+	private Date modifydate;
+	
+	@Column
+	private Date obseletedate;
 	
 	@OneToMany(mappedBy="department")
 	private Set<NxEmployee> employees = new HashSet<NxEmployee>();
