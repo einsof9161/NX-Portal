@@ -22,14 +22,14 @@
 	    	<c:if test="${not empty nameBindError}">
 				<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i>${nameBindError}</label>
 		   </c:if>
-	    	<input type="text" name="username" class="form-control" placeholder="請輸入帳號(字母加上英文)" value="${register.username}">
+	    	<input type="text" name="username" class="form-control" placeholder="請輸入帳號(英文或數字,最大20位)" value="${register.username}">
 		   	<span class="glyphicon glyphicon-user form-control-feedback"></span>
 	    </div>
 		<div class="form-group ${not empty realnameBindError?"has-error":"has-feedback"}">
 			<c:if test="${not empty realnameBindError}">
 				<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i>${realnameBindError}</label>
 		   </c:if>
-			<input type="text" name="realname" class="form-control" placeholder="真實姓名" value="${register.realname}">
+			<input type="text" name="realname" class="form-control" placeholder="填入真實姓名,最大不可超過30位" value="${register.realname}">
 			<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 		</div>
 		<div class="form-group ${not empty emailBindError?"has-error":"has-feedback"}">
