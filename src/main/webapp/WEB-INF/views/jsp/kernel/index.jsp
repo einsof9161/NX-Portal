@@ -17,7 +17,9 @@
 		</aside>
 		
 		<!-- Content Wrapper. Contains page content -->
-		<div id='content' class="content-wrapper"></div>
+		<div id='content' class="content-wrapper">
+			<jsp:include page="/WEB-INF/views/jsp/common/main.jsp"/>
+		</div>
 		
 		<jsp:include page="/WEB-INF/views/jsp/common/footer.jsp"/>
 		

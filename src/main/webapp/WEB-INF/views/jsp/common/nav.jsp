@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/tags/taglib.jsp" %>
 <header class="main-header">
 	<!-- Logo -->
-	<a href="../../index2.html" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+	<a href="./main" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
 		<span class="logo-mini"><b>N</b>X</span> <!-- logo for regular state and mobile devices -->
 		<span class="logo-lg"><b>NX</b>FlowConsole</span>
 	</a>
@@ -75,9 +75,9 @@
 						<li class="footer"><a href="#">檢視所有待處理工作</a></li>
 					</ul></li>
 				<!-- User Account: style can be found in dropdown.less -->
-				<li class="dropdown user user-menu"><a href="#"
-					class="dropdown-toggle" data-toggle="dropdown"> <!--  <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> -->
-						<span class="hidden-xs">Welcome! ${sessionUser.getRealname()}</span>
+				<li class="dropdown user user-menu">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <!--  <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> -->
+					<i class="fa fa-user"></i><span class="hidden-xs">Welcome! ${sessionUser.getRealname()}</span>
 				</a>
 					<ul class="dropdown-menu">
 						<!-- User image -->

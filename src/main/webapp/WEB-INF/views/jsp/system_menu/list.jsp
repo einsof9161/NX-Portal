@@ -55,7 +55,6 @@
 							<tr>
 							  <td> ${entry.id}</td>
 						      <td >
-						      menu/manage/edit?method=editMenuUI&isParent=${isParent}&id=${entry.id}
 								  <a onclick="redirectContentWrapper(this);" href="javascript:void(0);" contextUrl="menu/manage/edit?method=editMenuUI&isParent=${isParent}&id=${entry.id}">
 								  	<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 								  </a>

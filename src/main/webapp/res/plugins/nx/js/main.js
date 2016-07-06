@@ -3,12 +3,17 @@
  * 事件處理.menu異動.將網址keep 
  * **/
 window.onhashchange = function(){
+	
+	if(location.hash=='') reloadPortal('/main');
 	if(location.hash){
 		var hash = location.hash.substring(1);
 		goHistiry(hash);
 	}
 }
 
+function reloadPortal(){
+	location.reload();
+}
 
 /**
  * 處理圖片上傳
@@ -111,11 +116,12 @@ function load500Page(resonse,xhr){
 }
 
 function redirectContentWrapper(obj){
-	var destUrl = $(obj).attr('contextUrl');
-	destUrl = destUrl+" #content-wrapper";
+	var targetUrl = $(obj).attr('contextUrl');
+	var destUrl = targetUrl+" #content-wrapper";
 	console.log(destUrl);
 	$("#content").load(destUrl,function( response, status, xhr ) {
 		reponseHandler(response,xhr,status);
+		window.location.hash = targetUrl;
 	});
 	console.log("sucess");
 
@@ -142,7 +148,7 @@ function sumbitPage(obj){
 		    success : function(result) {
 		    	console.log(result)
 		    	alert('Save Sucessful');
-		    	
+		    	back();
 		    },
 		    error : function(jqXHR, textStatus, errorThrown) {
 		    	load500Page(jqXHR)

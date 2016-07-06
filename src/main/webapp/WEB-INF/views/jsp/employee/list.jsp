@@ -62,7 +62,7 @@
 							  <td> ${entry.username}</td>
 						      <td>
 							      <a href="control/employee/manage?method=privilegeGroupSetUI&username=${entry.username}">
-								  	<i class="fa fa-lock" aria-hidden="true"></i> 設定權限
+								  	<i class="fa fa-lock" aria-hidden="true"></i>
 								  </a>
 						      </td>
 						      <td>${entry.realname}</div></td>
@@ -74,7 +74,7 @@
 						      <td>
 						      <c:if test="${entry.visible}">
 						      	 <a href="control/employee/manage?method=leave&username=${entry.username}">
-								  	<i class="fa fa-eye-slash" aria-hidden="true"></i> 設定失效
+								  	<i class="fa fa-eye-slash" aria-hidden="true"></i>	
 								 </a>
 						      </c:if><c:if test="${!entry.visible}"><font color=red>已失效</font></c:if>
 						      </td>
