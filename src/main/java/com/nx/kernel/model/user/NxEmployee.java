@@ -42,6 +42,7 @@ public class NxEmployee {
 	@Column(length=20, nullable=false)
 	private String username;
 	
+	
 	@NotNull(message="不可為空值")
 	@Size(min=4)
 	@Column( nullable=false)
